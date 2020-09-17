@@ -1,7 +1,5 @@
-<template lang="pug">
-    <li>
-        {{ book.title }}, {{ book.author }}
-    </li>
+<template>
+  <li>{{book.title}}:{{book.author}}</li>
 </template>
 
 <script>

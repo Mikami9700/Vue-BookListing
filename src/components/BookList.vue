@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h1>{{title}}</h1>
+    <h1>{{ title }}</h1>
     <ul>
       <book-item v-for="book in books" :book="book"></book-item>
     </ul>
-    <hr />
+    <br />
     <book-form @addBook="appendBook"></book-form>
   </div>
 </template>
@@ -12,12 +12,9 @@
 <script>
 import BookItem from "./BookItem";
 import BookForm from "./BookForm";
-
 export default {
   name: "BookList",
-  components: {
-    BookItem,
-  },
+  components: { BookItem, BookForm },
   data() {
     return {
       title: "All Books",
@@ -28,15 +25,14 @@ export default {
       ],
     };
   },
+  methods: {
+    appendBook(bookTitle, bookAuthor) {
+      this.books.push({ title: bookTitle, author: bookAuthor });
+    },
+  },
 };
-methods: {
-  appendBook(bookTitle, bookAuthor) {
-    this.books.push({ title: bookTitle, bookAuthor })
-  }
-}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 h1,
 h2 {
@@ -51,3 +47,4 @@ li {
   margin: 0 10px;
 }
 </style>
+© 2020 GitHub, Inc.
